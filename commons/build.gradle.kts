@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.kotlinSerialization)
     alias(libs.plugins.parcelize)
-    `maven-publish`
+//    `maven-publish`
 }
 
 group = "org.fossify"
@@ -63,14 +63,6 @@ android {
 
     sourceSets {
         getByName("main").java.srcDirs("src/main/kotlin")
-    }
-}
-
-publishing.publications {
-    create<MavenPublication>("release") {
-        afterEvaluate {
-            from(components["release"])
-        }
     }
 }
 

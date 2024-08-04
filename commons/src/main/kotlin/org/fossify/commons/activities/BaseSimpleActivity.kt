@@ -132,7 +132,7 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
             } else {
                 getProperStatusBarColor()
             }
-
+            println(">>>> Update action bar color onresume $color")
             updateActionbarColor(color)
         }
 
@@ -182,6 +182,7 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
     }
 
     fun updateStatusbarColor(color: Int) {
+        println(">>> updateStatusbarColor $color")
         window.statusBarColor = color
 
         if (color.getContrastColor() == DARK_GREY) {
@@ -205,6 +206,7 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
     }
 
     fun updateActionbarColor(color: Int = getProperStatusBarColor()) {
+        println(">>>> updateActionbarColor $color")
         updateStatusbarColor(color)
         setTaskDescription(ActivityManager.TaskDescription(null, null, color))
     }
@@ -227,7 +229,7 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
         handleNavigationAndScrolling()
 
         val backgroundColor = getProperBackgroundColor()
-        updateStatusbarColor(backgroundColor)
+        println(">>> updateMaterialActivityViews")
         updateActionbarColor(backgroundColor)
     }
 
@@ -252,7 +254,7 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
         nestedView?.run {
             setPadding(paddingLeft, paddingTop, paddingRight, bottom)
         }
-        (mainCoordinatorLayout?.layoutParams as? FrameLayout.LayoutParams)?.topMargin = top
+        (mainCoordinatorLayout?.layoutParams as? FrameLayout.LayoutParams)?.topMargin = 0
     }
 
     // colorize the top toolbar and statusbar at scrolling down a bit
@@ -317,6 +319,7 @@ abstract class BaseSimpleActivity : AppCompatActivity() {
         }
 
         if (!useTopSearchMenu) {
+            println(">>>> updateTopBarColors $color")
             updateStatusbarColor(color)
             toolbar.setBackgroundColor(color)
             toolbar.setTitleTextColor(contrastColor)
