@@ -9,6 +9,8 @@ import android.util.Log
 import androidx.annotation.ChecksSdkIntAtLeast
 import androidx.annotation.StringRes
 import org.fossify.commons.R
+import org.fossify.commons.aes.AES_IMAGE_EXT
+import org.fossify.commons.aes.AES_VIDEO_EXT
 import org.fossify.commons.extensions.normalizeString
 import org.fossify.commons.models.contacts.LocalContact
 import org.fossify.commons.overloads.times
@@ -371,8 +373,8 @@ const val TAB_FILES = 16
 const val TAB_RECENT_FILES = 32
 const val TAB_STORAGE_ANALYSIS = 64
 
-val photoExtensions: Array<String> get() = arrayOf(".jpg", ".png", ".jpeg", ".bmp", ".webp", ".heic", ".heif", ".apng", ".avif")
-val videoExtensions: Array<String> get() = arrayOf(".mp4", ".mkv", ".webm", ".avi", ".3gp", ".mov", ".m4v", ".3gpp")
+val photoExtensions: Array<String> get() = arrayOf(".jpg", ".png", ".jpeg", ".bmp", ".webp", ".heic", ".heif", ".apng", ".avif", AES_IMAGE_EXT)
+val videoExtensions: Array<String> get() = arrayOf(".mp4", ".mkv", ".webm", ".avi", ".3gp", ".mov", ".m4v", ".3gpp", AES_VIDEO_EXT)
 val audioExtensions: Array<String> get() = arrayOf(".mp3", ".wav", ".wma", ".ogg", ".m4a", ".opus", ".flac", ".aac", ".m4b")
 val rawExtensions: Array<String> get() = arrayOf(".dng", ".orf", ".nef", ".arw", ".rw2", ".cr2", ".cr3")
 
